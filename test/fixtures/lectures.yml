@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Python
+  short_name: Py
+  etcs_point: 3
+  description: Fun Fun Fun
+
+two:
+  name: CSharp
+  short_name: C#
+  etcs_point: 2
+  description: Opis

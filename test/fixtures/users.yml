@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+one:
+  first_name: Jon
+  second_name: Snow
+  email: js@gmail.com
+  password_digest: <%= BCrypt::Password.create('secret') %>
+
+two:
+  first_name: Olenta Tyrell
+  second_name: Kowalski
+  email: ot@gmail.com
+  password_digest: <%= BCrypt::Password.create('secret') %>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Classes App!</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav class="navbar">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">EpicSchedule</a>
+            </div>
+            <ul class="nav navbar-nav pull-right">
+              <li class="active">
+                <a href="#">Home</a>
+              </li>
+
+              <li><%= link_to 'Wykaz zajęć', lectures_path  %></li>
+              <li>
+                <% unless session[:user_id] %>
+                <%= link_to 'Zaloguj', login_path %>
+                <% end %>
+              </li>
+              <li>
+                <% if session[:user_id] %>
+                <%= link_to 'Wyloguj', logout_path, method: :delete  %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <p>Schedule you lectures easy and fast way!</p>
+      </header>
+      <%= yield %>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        Made with ❤
+        <%= Time.now.year %>
+        EpicScheduler
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.js"></script>
+  </body>
+</html>
