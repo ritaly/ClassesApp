@@ -3,4 +3,6 @@ Simple student planner app where students can manage their classes
 
 * based on http://ruby-on-rails-tutorial.x25.pl/
 
+* https://fierce-headland-37183.herokuapp.com
+
 * ...
