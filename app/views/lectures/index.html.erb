@@ -23,7 +23,7 @@
         <td><%= link_to 'Show', lecture %></td>
         <td><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
         <td><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= button_to 'Dodaj do planu', lists_path(lecture_id: lecture), {class: 'btn btn-info btn-xs'} %></td>
+        <td><%= button_to 'Add to plan', lists_path(lecture_id: lecture), {class: 'btn btn-info btn-xs'} %></td>
       </tr>
       <% end %>
     </tbody>

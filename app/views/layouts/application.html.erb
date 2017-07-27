@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Classes App!</title>
+    <title>EpicScheduler!</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -14,32 +14,32 @@
         <nav class="navbar">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="/">EpicSchedule</a>
+              <a class="navbar-brand" href="/">EpicScheduler</a>
             </div>
             <ul class="nav navbar-nav pull-right">
               <li class="active">
                 <a href="#">Home</a>
               </li>
 
-              <li><%= link_to 'Wykaz zajęć', lectures_path  %></li>
+              <li><%= link_to 'List of classes', lectures_path  %></li>
               <% if session[:plan_id] %>
               <li>
-                <%= link_to 'Moje przedmioty', plan_path(session[:plan_id]) %>
+                <%= link_to 'My classes', plan_path(session[:plan_id]) %>
               </li>
               <% end %>
               <li>
                 <% unless session[:user_id] %>
-                <%= link_to 'Zaloguj', login_path %>
+                <%= link_to 'Log in', login_path %>
                 <% end %>
               </li>
               <li>
                 <% if session[:user_id] %>
-                <%= link_to 'Wyloguj', logout_path, method: :delete  %>
+                <%= link_to 'Log out', logout_path, method: :delete  %>
                 <% end %>
               </li>
               <li>
                 <% unless session[:user_id] %>
-                <%= link_to 'Zarejestruj', new_user_url%>
+                <%= link_to 'Register', new_user_url%>
                 <% end %>
               </li>
             </ul>
