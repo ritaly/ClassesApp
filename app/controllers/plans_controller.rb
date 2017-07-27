@@ -15,6 +15,7 @@ class PlansController < ApplicationController
   # GET /plans/new
   def new
     @plan = Plan.new
+
   end
 
   # GET /plans/1/edit
@@ -25,6 +26,7 @@ class PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
+
 
     respond_to do |format|
       if @plan.save

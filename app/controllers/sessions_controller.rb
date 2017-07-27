@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to lectures_url, notice: "Welcome, you're log in"
+      redirect_to plan_path(session[:plan_id]), notice: "Welcome, you're log in"
     else
       #flash[:notice] ="Sorry, you can’t login"
       redirect_to login_url, alert: "Your mail or password is wrong, please check it again"
