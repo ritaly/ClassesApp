@@ -13,10 +13,13 @@
         (<%= item.lecture.short_name %>)
       </td>
       <td><%= item.lecture.etcs_point %></td>
-      <td><%= link_to 'Usuń', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </table>
-
+</div>
+ <div class="panel-body">
   <b> Zebrane pkt ECTS: <%= @plan.total_point%> </b>
 </div>
+
+  <%= button_to "Save this!", new_order_path, method: :get, :class => 'btn btn-success' %>

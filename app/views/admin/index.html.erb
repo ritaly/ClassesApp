@@ -1,5 +1,18 @@
 <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
 <% end %>
-<h2>Witaj w panelu administratora</h2>
-<p> Tu będziesz widziec nadchodzące przedmioty :) </p>
+<h2>Hello in dashboard</h2>
+<p> Here you've got all ordered classes :) </p>
+<ul>
+  <% @orders.each do |item| %>
+    <li> <%= item.first_name %> <% item.second_name %> <% item.email %>
+      <ul>
+        <% item.lists.each do |classes| %>
+          <li>
+            <%= classes.lecture.name %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
