@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :users
+  resources :lectures
+  resources :lists
   resources :plans
   root 'lectures#index'
   get 'admin' => 'admin#index'
@@ -18,8 +22,6 @@ Rails.application.routes.draw do
 
 # end in my opinion its repeatet part :P
 
-  resources :users
-  resources :lectures
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

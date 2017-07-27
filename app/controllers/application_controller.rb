@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
       redirect_to login_url, notice: "Zaloguj się"
     end
   end
+  private
+  def start_plan
+    plan = Plan.find(session[:plan_id])
+    rescue ActiveRecord::RecordNotFound
+    plan = Plan.create
+    session[:plan_id] = plan.id 
+    plan
+  end
 end

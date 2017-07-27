@@ -22,6 +22,11 @@
               </li>
 
               <li><%= link_to 'Wykaz zajęć', lectures_path  %></li>
+              <% if session[:plan_id] %>
+              <li>
+                <%= link_to 'Moje przedmioty', plan_path(session[:plan_id]) %>
+              </li>
+              <% end %>
               <li>
                 <% unless session[:user_id] %>
                 <%= link_to 'Zaloguj', login_path %>
@@ -30,6 +35,11 @@
               <li>
                 <% if session[:user_id] %>
                 <%= link_to 'Wyloguj', logout_path, method: :delete  %>
+                <% end %>
+              </li>
+              <li>
+                <% unless session[:user_id] %>
+                <%= link_to 'Zarejestruj', new_user_url%>
                 <% end %>
               </li>
             </ul>
@@ -41,11 +51,11 @@
       <%= yield %>
     </div>
     <footer class="footer">
-      <div class="container">
-        Made with ❤
-        <%= Time.now.year %>
-        EpicScheduler
-      </div>
+
+      Made with ❤
+      <%= Time.now.year %>
+      EpicScheduler
+
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.js"></script>

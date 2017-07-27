@@ -2,3 +2,19 @@
 
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
 <%= link_to 'Back', plans_path %>
+
+<h2>Wybrane przedmioty</h2>
+
+<div class="table-responsive">
+  <table class="table">
+    <% @plan.lists.each do |item| %>
+    <tr>
+      <td><%= item.lecture.name %>
+        (<%= item.lecture.short_name %>)
+      </td>
+      <td><%= item.lecture.etcs_point %></td>
+      <td><%= link_to 'Usuń', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
