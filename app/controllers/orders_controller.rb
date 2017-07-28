@@ -35,13 +35,7 @@ class OrdersController < ApplicationController
   def create
    @order = Order.new(order_params)
    @plan = start_plan
-   if @plan.total_point< 30
-     redirect_to plan_path(session[:plan_id]),
-     notice: "Total ECTS scores less than 30.
-              You've got: #{@plan.lists.to_a.length}
-              classes = #{@plan.total_point} ECTS"
-     return
-   end
+   
    @order.add_lists_from_plan(@plan)
    respond_to do |format|
      if @order.save
