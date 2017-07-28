@@ -1,0 +1,11 @@
+<h3>Czy to <%= @order.first_name %> <%= @order.second_name %> ?</h3>
+<p>
+  Twój plan zajęć to:
+</p>
+<ul>
+  <% @order.lists.each do |classes| %>
+    <li>
+      <%= classes.lecture.name %>
+    </li>
+    <% end %>
+</ul>

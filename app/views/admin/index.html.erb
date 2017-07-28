@@ -4,9 +4,11 @@
 <h2>Hello in dashboard</h2>
 <p> Here you've got all ordered classes :) </p>
 
-  <% @orders.each do |item| %>
+  <% @orders.each do |item|
+    #if item.email == session[:user_email] %>
+
     <p>
-        <%= item.first_name%> <%= item.second_name %> <%= item.email %>
+        <%= item.first_name.capitalize%> <%= item.second_name.capitalize %> <%= item.email %>
     </p>
 
       <ul>
