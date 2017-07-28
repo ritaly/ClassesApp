@@ -3,9 +3,12 @@
 <% end %>
 <h2>Hello in dashboard</h2>
 <p> Here you've got all ordered classes :) </p>
-<ul>
+
   <% @orders.each do |item| %>
-    <li> <%= item.first_name %> <% item.second_name %> <% item.email %>
+    <p>
+        <%= item.first_name%> <%= item.second_name %> <%= item.email %>
+    </p>
+
       <ul>
         <% item.lists.each do |classes| %>
           <li>
@@ -15,4 +18,3 @@
       </ul>
     </li>
   <% end %>
-</ul>
