@@ -34,7 +34,7 @@ class ListsController < ApplicationController
           @list = @plan.lists.build(:lecture => lecture)
            respond_to do |format|
              if @list.save
-               format.html { redirect_to @list.plan, notice: 'List was successfully created.' }
+               format.html { redirect_to @list.plan, notice: 'Lecture was successfully added.' }
                format.json { render action: 'show', status: :created, location: @list }
              else
                format.html { render action: 'new' }
