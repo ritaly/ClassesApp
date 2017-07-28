@@ -20,10 +20,25 @@
         <td><%= lecture.short_name %></td>
         <td><%= lecture.etcs_point %></td>
         <td><%= lecture.description %></td>
-        <td><%= link_to 'Show', lecture %></td>
-        <td><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
-        <td><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= button_to 'Add to plan', lists_path(lecture_id: lecture), {class: 'btn btn-info btn-xs'} %></td>
+        <td><%= link_to lecture,
+                class: "btn btn-primary btn-xs" do %>
+          <i class="glyphicon glyphicon-eye-open"></i>
+          Show
+          <% end %>
+        </td>
+        <td><%= link_to edit_lecture_path(lecture),
+                class: "btn btn-warning btn-xs" do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+          Edit
+          <% end %>
+        </td>
+        <td><%= link_to lecture, method: :delete, data: { confirm: 'Are you sure?' },
+                class: "btn btn-danger btn-xs" do %>
+          <i class="glyphicon glyphicon-trash"></i>
+          Delete
+          <% end %>
+        </td>
+        <td><%= button_to 'Add to plan', lists_path(lecture_id: lecture), {class: 'btn btn-success btn-xs'} %></td>
       </tr>
       <% end %>
     </tbody>
@@ -31,4 +46,4 @@
 </div>
 <br>
 
-<%= link_to 'New Lecture', new_lecture_path, :class => 'btn btn-primary' %>
+<%= link_to 'New Lecture', new_lecture_path, :class => 'btn btn-info' %>
