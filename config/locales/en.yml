@@ -33,3 +33,7 @@ en:
       short: "Short name"
       ects: "ECTS points"
       desc: "Description"
+  notice:
+    login: "Welcome, you're log in"
+    alert: "Your mail or password is wrong, please check it again"
+    logout: "Bye,bye, you're log out"
