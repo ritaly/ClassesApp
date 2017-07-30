@@ -20,4 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  application:
+    desc: "Best way to schedule your academic lectures"
+  admin:
+    index:
+      title: "Welcome to admin dashboard"
+      description: Here you've got all ordered classes :)
+  lectures:
+    index:
+      title: "Available lectures"
+      name: "Name"
+      short: "Short name"

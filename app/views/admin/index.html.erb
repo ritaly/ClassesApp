@@ -1,8 +1,8 @@
 <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
 <% end %>
-<h2>Hello in dashboard</h2>
-<p> Here you've got all ordered classes :) </p>
+<h2><%= t "admin.index.title" %></h2>
+<p> <%= t "admin.index.description" %></p>
 
   <% @orders.each do |item|
     #if item.email == session[:user_email] %>

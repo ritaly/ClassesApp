@@ -10,6 +10,12 @@
   </head>
   <body>
     <div class="container">
+      <div class="pull-right">
+        Language:
+        <%= link_to_unless_current "English", locale: "en" %>
+        |
+        <%= link_to_unless_current "Polish", locale: "pl" %>
+      </div>
       <header>
         <nav class="navbar">
           <div class="container-fluid">
@@ -54,7 +60,8 @@
           </div>
         </nav>
 
-        <p>Schedule you lectures easy and fast way!</p>
+        <p><%= t "application.desc" %></p>
+
       </header>
       <%= yield %>
     </div>

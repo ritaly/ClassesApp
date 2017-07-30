@@ -1,26 +1,20 @@
 Rails.application.routes.draw do
-
-  resources :orders
-  resources :users
-  resources :lectures
-  resources :lists
-  resources :plans
-  root 'lectures#index'
-  get 'admin' => 'admin#index'
-  controller :sessions do
-    get  'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
+  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :orders
+    resources :users
+    resources :lectures
+    resources :lists
+    resources :plans
+    root 'lectures#index'
+    get 'admin' => 'admin#index'
+    controller :sessions do
+      get  'login' => :new
+      post 'login' => :create
+      delete 'logout' => :destroy
+    end
   end
-
-  get "sessions/create"
-  get "sessions/destroy"
-
-# well  why this is here?
-  get 'admin/index'
-
-  get 'sessions/new'
-
+  get '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
+  get '', to: redirect("/#{I18n.default_locale}")
 # end in my opinion its repeatet part :P
 
   # The priority is based upon order of creation: first created -> highest priority.
