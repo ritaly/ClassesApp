@@ -21,7 +21,15 @@
 
 en:
   application:
+    lang: "Choose your language:"
     desc: "Best way to schedule your academic lectures"
+    nav:
+      panel: "Admin panel"
+      list: "List of lectures"
+      ects: "ECTS planner"
+      login: "Log in"
+      logout: "Log out"
+      reg: "Register"
   admin:
     index:
       title: "Welcome to admin dashboard"

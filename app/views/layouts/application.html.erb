@@ -11,7 +11,7 @@
   <body>
     <div class="container">
       <div class="lang">
-        Language:
+        <%= t "application.lang" %>
         <%= link_to_unless_current "🇬🇧 English", locale: "en" %>
         |
         <%= link_to_unless_current "🇵🇱 Polish", locale: "pl" %>
@@ -31,28 +31,28 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav pull-right">
                 <li>
-                  <%= link_to 'Admin panel', admin_url %>
+                  <%= link_to t("application.nav.panel"), admin_url %>
                 </li>
 
-                <li><%= link_to 'List of classes', lectures_path  %></li>
+                <li><%= link_to t("application.nav.list"), lectures_path  %></li>
                 <% if session[:plan_id] %>
                 <li>
-                  <%= link_to 'ECTS planner', plan_path(session[:plan_id]) %>
+                  <%= link_to t("application.nav.ects"), plan_path(session[:plan_id]) %>
                 </li>
                 <% end %>
                 <li>
                   <% unless session[:user_id] %>
-                  <%= link_to 'Log in', login_path %>
+                  <%= link_to t("application.nav.login"), login_path %>
                   <% end %>
                 </li>
                 <li>
                   <% if session[:user_id] %>
-                  <%= link_to 'Log out', logout_path, method: :delete  %>
+                  <%= link_to t("application.nav.logout"), logout_path, method: :delete  %>
                   <% end %>
                 </li>
                 <li>
                   <% unless session[:user_id] %>
-                  <%= link_to 'Register', new_user_url%>
+                  <%= link_to t("application.nav.reg"), new_user_url%>
                   <% end %>
                 </li>
               </ul>
