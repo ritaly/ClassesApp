@@ -31,3 +31,5 @@ en:
       title: "Available lectures"
       name: "Name"
       short: "Short name"
+      ects: "ECTS points"
+      desc: "Description"
