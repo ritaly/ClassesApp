@@ -24,24 +24,22 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
-     @plan = start_plan
-     lecture = Lecture.find(params[:lecture_id])
-     curent_lecture = @plan.lists.find_by(lecture_id: lecture)
+    @plan = start_plan
+    lecture = Lecture.find(params[:lecture_id])
+    curent_lecture = @plan.lists.find_by(lecture_id: lecture)
 
-     if curent_lecture
-       redirect_to lectures_url, notice: "You can't add this lecture again, choose sth else"
-     else
-          @list = @plan.lists.build(:lecture => lecture)
-           respond_to do |format|
-             if @list.save
-               format.html { redirect_to @list.plan, notice: 'Lecture was successfully added.' }
-               format.json { render action: 'show', status: :created, location: @list }
-             else
-               format.html { render action: 'new' }
-               format.json { render json: @list.errors, status: :unprocessable_entity }
-             end
-           end
-     end
+    if curent_lecture
+      redirect_to lectures_url, notice: "You can't add this lecture again, choose sth else"
+    else
+      @list = @plan.lists.build(:lecture => lecture)
+      respond_to do |format|
+        if @list.save
+          format.html { redirect_to @list.plan, notice: 'Lecture was successfully added.' }
+        else
+          format.html { render action: 'new' }
+        end
+      end
+    end
   end
 
 
@@ -70,13 +68,13 @@ class ListsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_list
-      @list = List.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_list
+    @list = List.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def list_params
-      params.require(:list).permit(:lecture_id, :plan_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def list_params
+    params.require(:list).permit(:lecture_id, :plan_id)
+  end
 end
