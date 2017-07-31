@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
      if @order.save
        #Plan.destroy(session[:plan_id])
        #session[:plan_id] = nil
-       BookClasses.received(@order).deliver
+       #BookClasses.received(@order).deliver
        format.html { redirect_to root_path, notice: 'Order was successfully created.' }
        format.json { render action: 'show', status: :created, location: @order }
      else

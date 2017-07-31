@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to admin_url, notice: t('notice.login')
     else
       #flash[:notice] ="Sorry, you can’t login"
-      redirect_to login_url, alert: t(notice.alert)
+      redirect_to login_url, alert: t('notice.alert')
     end
   end
 

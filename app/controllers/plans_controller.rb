@@ -66,7 +66,10 @@ class PlansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_plan
-      @plan = Plan.find(params[:id])
+      @plan = Plan.find_by_id(params[:id]) 
+      if @plan.nil?
+        redirect_to root_path, notice: 'You can\'t see a plan - please add first lecture!'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
